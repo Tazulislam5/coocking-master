@@ -1,0 +1,13 @@
+#mealContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    
+}
+#mealContainer img{
+    width: 500px;
+}
+.meal{
+    border: 2px solid magenta;
+    border-radius: 10px;
+}

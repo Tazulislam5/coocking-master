@@ -1,5 +1,5 @@
 const searchMeal = () =>{
-    const searchName = document.getElementById('inputValue').value;
+    const searchName = document.getElementById('input').value;
    
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchName}`;
 
@@ -8,14 +8,30 @@ const searchMeal = () =>{
     .then(data => displayMeal(data.meals))
 }
 
- const handleSearch = document.getElementById("button").addEventListener('click', searchMeal());
+const displayMeal = meal =>{
+    const mealContainer = document.getElementById('mealContainer');
+  meal.forEach(mealItem => {
+    //    console.log(mealItem);
+     const mealDiv = document.createElement('div');
+     mealDiv.className = 'meal';
+     mealDiv.innerHTML = `
+     <img src="${mealItem.strMealThumb}">
+     `
+     mealContainer.appendChild(mealDiv);
 
- const displayMeal = (meal) =>{
-    //  console.log(meal);
-     const mealDiv = document.getElementById('mealItem');
-     
-        
-   
- } 
+  });
+}
+
+ 
+
+displayIngredients = id =>{
+  const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${id}`
+  fetch(url)
+  .then(res = res.json())
+  .then(data => console.log(data))
+}
+
+
+
 
  
